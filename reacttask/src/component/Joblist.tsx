@@ -1,4 +1,5 @@
 import React from "react";
+import Jobcard from "./Jobcard";
 
 type jobs = {
   id: number;
@@ -87,3 +88,18 @@ const Jobs: jobs[] = [
     salary: "₦550,000 per month",
   },
 ];
+
+const joblist: React.FC = () => {
+  return (
+    <div>
+      <h1>Job Vacancies</h1>
+      {Jobs.length > 0 ? (
+        Jobs.map((job) => <Jobcard key={job.id} job={job} />)
+      ) : (
+        <p>No Available jobs at the moment.</p>
+      )}
+    </div>
+  );
+};
+
+export default joblist;
